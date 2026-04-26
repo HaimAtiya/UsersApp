@@ -1,0 +1,20 @@
+.state {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.error {
+  color: #c62828;
+  padding: 12px;
+  border: 1px solid #ef9a9a;
+  background: #ffebee;
+  border-radius: 4px;
+  margin: 12px 0;
+}
+
+.user-table {
+  width: 100%;
+  margin-top: 12px;
+}

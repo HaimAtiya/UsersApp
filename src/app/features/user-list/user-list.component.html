@@ -1,0 +1,48 @@
+<h2>Users</h2>
+
+<div *ngIf="loading$ | async" class="state">
+  <mat-spinner diameter="32"></mat-spinner>
+  <span>Loading...</span>
+</div>
+
+<div *ngIf="error$ | async as err" class="error">{{ err }}</div>
+
+<ng-container *ngIf="(users$ | async) as users">
+  <table
+    *ngIf="!(loading$ | async) && !(error$ | async)"
+    mat-table
+    [dataSource]="users"
+    class="user-table"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let u">{{ u.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let u">{{ u.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef>Username</th>
+      <td mat-cell *matCellDef="let u">{{ u.username }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef>Age</th>
+      <td mat-cell *matCellDef="let u">{{ u.age }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let u">
+        <button mat-button color="primary" (click)="onEdit(u)">Edit</button>
+        <button mat-button color="warn" (click)="onDelete(u)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</ng-container>

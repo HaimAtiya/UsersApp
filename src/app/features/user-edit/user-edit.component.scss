@@ -1,0 +1,16 @@
+.edit-card {
+  max-width: 480px;
+  margin: 24px auto;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
