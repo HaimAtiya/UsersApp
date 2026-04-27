@@ -49,7 +49,6 @@ export class UserListComponent implements OnInit {
 
   onDelete(user: User): void {
     if (confirm(`Delete user "${user.username}"?`)) {
-      // eslint-disable-next-line no-console
       console.log('deleted', user);
       this.store.dispatch(UserActions.deleteUser({ id: user.id }));
     }
